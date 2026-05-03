@@ -8,89 +8,99 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #000; color: #fff; }
+        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #000; }
         .reveal { animation: fadeInUp 0.8s ease-out forwards; }
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body class="min-h-screen">
 
-    <!-- Header -->
-    <nav class="p-6 border-b border-white/10 bg-black/50 backdrop-blur-md sticky top-0 z-50">
+    <!-- Навигация -->
+    <nav class="p-6 border-b border-gray-100 bg-white/80 backdrop-blur-md sticky top-0 z-50">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
             <a href="index.html" class="text-2xl font-black uppercase tracking-tighter">
-                BIKEHUB <span class="text-yellow-400">KE</span>
+                BIKEHUB <span class="text-gray-300 italic">KE</span>
             </a>
-            <a href="index.html" class="text-gray-400 hover:text-yellow-400 transition uppercase text-[10px] font-black tracking-[0.2em]">
-                <i class="fas fa-arrow-left mr-2"></i> Späť na ponuku
+            <a href="index.html" class="bg-black text-white px-6 py-2.5 rounded-full font-black uppercase text-[10px] tracking-widest hover:bg-gray-800 transition">
+                <i class="fas fa-arrow-left mr-2"></i> Späť
             </a>
         </div>
     </nav>
 
-    <main id="bike-details" class="max-w-6xl mx-auto py-12 md:py-20 px-6">
-        <div class="text-center py-20 text-gray-700 animate-pulse uppercase tracking-[0.3em] text-xs font-black">
-            Načítavam parametre stroja...
+    <main id="bike-detail-content" class="max-w-6xl mx-auto py-12 md:py-24 px-6">
+        <!-- Сюда JS вставит данные -->
+        <div class="w-full text-center py-20 text-gray-200 animate-pulse uppercase tracking-widest text-xs font-black">
+            Načítavam dáta...
         </div>
     </main>
 
     <script>
-        async function loadBikeDetails() {
+        async function loadBikeDetail() {
             const params = new URLSearchParams(window.location.search);
             const bikeId = params.get('id');
 
             try {
                 const response = await fetch('bikes.json');
                 const bikes = await response.json();
-                const bike = bikes.find(b => b.id == bikeId);
+                const bike = bikes.find(b => b.id === bikeId);
 
                 if (!bike) {
-                    document.getElementById('bike-details').innerHTML = '<h1 class="text-center py-20 uppercase font-black tracking-tighter text-4xl text-gray-800">Bicykel nenájdený</h1>';
+                    document.getElementById('bike-detail-content').innerHTML = '<h1 class="text-center py-20 font-black text-4xl text-gray-100 uppercase">Nenájdené</h1>';
                     return;
                 }
 
                 document.title = `${bike.brand} ${bike.model} | BIKEHUB KE`;
 
-                document.getElementById('bike-details').innerHTML = `
-                    <div class="flex flex-col lg:flex-row gap-16 reveal">
-                        <!-- Image Column -->
+                document.getElementById('bike-detail-content').innerHTML = `
+                    <div class="flex flex-col lg:flex-row gap-12 lg:gap-20 reveal">
+                        <!-- Секция фото -->
                         <div class="lg:w-3/5">
-                            <div class="rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl shadow-yellow-400/5">
-                                <img src="${bike.image}" alt="${bike.brand}" class="w-full h-full object-cover">
+                            <div class="rounded-[3rem] overflow-hidden bg-gray-50 shadow-sm">
+                                <img src="${bike.image}" alt="${bike.brand}" class="w-full h-auto object-cover">
                             </div>
                         </div>
 
-                        <!-- Info Column -->
+                        <!-- Секция информации -->
                         <div class="lg:w-2/5 flex flex-col justify-center">
-                            <span class="bg-yellow-400 text-black text-[10px] font-black px-5 py-1.5 rounded-full uppercase tracking-widest w-fit mb-6">
-                                ${bike.status}
-                            </span>
-                            <h1 class="text-6xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-4 italic">${bike.brand}</h1>
-                            <h2 class="text-2xl font-bold text-yellow-400 uppercase tracking-widest mb-10">${bike.model}</h2>
-                            
-                            <div class="text-5xl font-black text-white mb-12 tracking-tighter">${bike.price}€</div>
-
-                            <div class="bg-zinc-900/50 border border-white/5 p-8 rounded-[2.5rem] mb-12">
-                                <h3 class="text-[10px] font-black uppercase tracking-widest mb-4 text-gray-500">Popis a výbava</h3>
-                                <p class="text-gray-300 leading-relaxed font-medium">${bike.description}</p>
+                            <div class="mb-8">
+                                <span class="text-[10px] font-black uppercase tracking-[0.3em] text-gray-400 mb-4 block underline decoration-gray-200 underline-offset-8">
+                                    Status: ${bike.status}
+                                </span>
+                                <h1 class="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-none mb-2">${bike.brand}</h1>
+                                <p class="text-2xl font-light text-gray-400 uppercase tracking-widest italic">${bike.model}</p>
                             </div>
 
-                            <div class="flex flex-col gap-4">
-                                <a href="tel:+421952471384" class="bg-yellow-400 text-black text-center py-6 rounded-3xl font-black uppercase text-sm tracking-[0.2em] hover:scale-[1.02] transition duration-300 shadow-xl shadow-yellow-400/10">
+                            <div class="text-5xl font-black text-black mb-12 tracking-tighter">
+                                ${bike.price}€
+                            </div>
+
+                            <div class="border-t border-gray-100 pt-8 mb-12">
+                                <h3 class="text-[10px] font-black uppercase tracking-widest text-gray-300 mb-4">Technický popis</h3>
+                                <p class="text-gray-600 leading-relaxed font-medium text-lg">
+                                    ${bike.description}
+                                </p>
+                            </div>
+
+                            <div class="space-y-4">
+                                <a href="tel:+421952471384" class="block w-full bg-black text-white text-center py-6 rounded-2xl font-black uppercase text-xs tracking-[0.3em] hover:bg-gray-800 transition-all shadow-xl">
                                     Mám záujem / Zavolať
                                 </a>
-                                <p class="text-center text-[9px] font-black text-gray-600 uppercase tracking-[0.4em]">Odber: Košice, Slovensko</p>
+                                <div class="flex items-center justify-center gap-6 pt-4 text-gray-300">
+                                    <span class="text-[9px] font-black uppercase tracking-widest"><i class="fas fa-check mr-2"></i> Servisované</span>
+                                    <span class="text-[9px] font-black uppercase tracking-widest"><i class="fas fa-map-marker-alt mr-2"></i> Košice</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 `;
             } catch (error) {
-                console.error('Chyba pri načítaní dát');
+                console.error('Error:', error);
             }
         }
-        loadBikeDetails();
+        loadBikeDetail();
     </script>
 </body>
 </html>
