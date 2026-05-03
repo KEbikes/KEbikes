@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BikeHub Košice | Kvalitné bicykle z druhej ruky</title>
+    <title>BikeHub Košice | Kvalitné bicykle</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-50 font-sans text-gray-900">
+<body class="bg-gray-50 text-gray-900 font-sans">
 
     <!-- Header -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-blue-600 tracking-tight">BIKE<span class="text-gray-800">HUB</span> KE</h1>
-            <nav class="space-x-6 text-sm font-medium">
+            <h1 class="text-2xl font-black text-blue-600 tracking-tighter">BIKEHUB <span class="text-gray-900">KE</span></h1>
+            <nav class="hidden md:flex space-x-6 font-medium">
                 <a href="#ponuka" class="hover:text-blue-600 transition">Ponuka</a>
                 <a href="#servis" class="hover:text-blue-600 transition">Servis</a>
                 <a href="#kontakt" class="hover:text-blue-600 transition">Kontakt</a>
@@ -20,91 +21,115 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="bg-blue-600 text-white py-16 px-4 text-center">
-        <h2 class="text-4xl font-extrabold mb-4">Vyladené bicykle v Košiciach</h2>
-        <p class="text-lg text-blue-100 max-w-2xl mx-auto">Ponúkam bicykle po kompletnom servise. Sadnúť a jazdiť.</p>
+    <!-- Hero -->
+    <section class="bg-blue-600 py-20 px-4 text-center text-white">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Vyladené bicykle v Košiciach</h2>
+        <p class="text-xl text-blue-100 max-w-2xl mx-auto">Ponúkam bicykle po kompletnom servise. Sadnúť a jazdiť.</p>
     </section>
 
-    <!-- Bike Grid (База данных) -->
-    <main id="ponuka" class="max-w-6xl mx-auto px-4 py-12">
-        <h3 class="text-2xl font-bold mb-8">Aktuálna ponuka</h3>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Велосипед 1: Torpado -->
-            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
-                <div class="h-48 bg-gray-200">
-                    <!-- Сюда вставим фото твоего Torpado -->
-                    <img src="https://via.placeholder.com/400x300" alt="Torpado" class="w-full h-full object-cover">
-                </div>
-                <div class="p-5">
-                    <span class="text-xs font-bold text-blue-600 uppercase tracking-widest">Predané</span>
-                    <h4 class="text-xl font-bold mt-1">Torpado Sportage 29"</h4>
-                    <p class="text-gray-600 text-sm mt-2 line-clamp-2">Kompletný servis, nové lanká a mestské plášte. Top stav.</p>
-                    <div class="mt-4 flex justify-between items-center">
-                        <span class="text-2xl font-extrabold text-gray-900">195€</span>
-                        <a href="#" class="bg-gray-800 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-700">Detail</a>
-                    </div>
-                </div>
-            </div>
+    <!-- Ponuka -->
+    <section id="ponuka" class="max-w-6xl mx-auto py-16 px-4">
+        <h3 class="text-3xl font-bold mb-10">Aktuálna ponuka</h3>
+        <div id="bike-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- JavaScript sem vloží bicykle -->
+        </div>
+    </section>
 
-            <!-- Велосипед 2: Merida (Твой новый проект) -->
-            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition border-2 border-blue-500">
-                <div class="h-48 bg-gray-200 relative">
-                    <div class="absolute top-2 right-2 bg-blue-500 text-white text-[10px] px-2 py-1 rounded font-bold uppercase">Novinka</div>
-                    <img src="https://via.placeholder.com/400x300" alt="Merida" class="w-full h-full object-cover">
-                </div>
-                <div class="p-5">
-                    <span class="text-xs font-bold text-green-600 uppercase tracking-widest">Dostupné</span>
-                    <h4 class="text-xl font-bold mt-1">Merida Matts Comp</h4>
-                    <p class="text-gray-600 text-sm mt-2 line-clamp-2">Hliníkový rám, vidlica SR Suntour XCM. Pripravený na sezónu.</p>
-                    <div class="mt-4 flex justify-between items-center">
-                        <span class="text-2xl font-extrabold text-gray-900">145€</span>
-                        <a href="https://bazos.sk" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-500 transition">Mám záujem</a>
+    <!-- Servis -->
+    <section id="servis" class="bg-gray-100 py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h3 class="text-3xl font-bold mb-4 text-center">Môj štandard prípravy</h3>
+            <p class="text-center text-gray-600 mb-12">Každý bicykel, ktorý predávam, prechádza mojou dielňou</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mb-6 text-xl">
+                        <i class="fas fa-tools"></i>
                     </div>
+                    <h4 class="text-xl font-bold mb-3">Technická revízia</h4>
+                    <p class="text-gray-600 leading-relaxed text-sm">Kontrola všetkých ložísk, centrovanie kolies a presné nastavenie radenia a bŕzd.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 mb-6 text-xl">
+                        <i class="fas fa-soap"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Hĺbkové čistenie</h4>
+                    <p class="text-gray-600 leading-relaxed text-sm">Kompletné odmastenie pohonu a detailné čistenie rámu. Bicykel odovzdávam v top stave.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 mb-6 text-xl">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Nové diely</h4>
+                    <p class="text-gray-600 leading-relaxed text-sm">Ak sú lanká, platničky alebo plášte opotrebované, mením ich za nové komponenty.</p>
                 </div>
             </div>
         </div>
-    </main>
+    </section>
 
-    <!-- Footer / Contact -->
-    <footer id="kontakt" class="bg-gray-900 text-white py-12 px-4 mt-12 text-center">
-        <p class="text-gray-400">Oleh Huralnyk | Košice, Slovakia</p>
-        <p class="mt-2 text-sm italic">Profesionálny prístup k bicyklom z druhej ruky.</p>
-    </footer>
-<script>
-    async function loadBikes() {
-        try {
-            const response = await fetch('bikes.json'); // Загружаем твой файл
-            const bikes = await response.json(); // Превращаем в массив объектов
-            const container = document.getElementById('bike-container');
+    <!-- Kontakt -->
+    <section id="kontakt" class="max-w-4xl mx-auto py-20 px-4 text-center">
+        <h3 class="text-3xl font-bold mb-6">Máte záujem o bicykel?</h3>
+        <p class="text-gray-600 mb-10 text-lg">Ozvite sa mi a dohodneme si obhliadku v Košiciach.</p>
+        
+        <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+            <a href="tel:+421952471384" class="flex items-center space-x-3 bg-white border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-full hover:bg-blue-600 hover:text-white transition font-bold">
+                <i class="fas fa-phone"></i>
+                <span>+421 952 471 384</span>
+            </a>
+            <a href="mailto:perepro1zz@gmail.com" class="flex items-center space-x-3 bg-gray-900 text-white px-8 py-3 rounded-full hover:bg-gray-800 transition font-bold">
+                <i class="fas fa-envelope"></i>
+                <span>perepro1zz@gmail.com</span>
+            </a>
+        </div>
+        <p class="mt-8 text-sm text-gray-500 font-medium">📍 Košice, Slovensko</p>
+    </section>
 
-            container.innerHTML = bikes.map(bike => `
-                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
-                    <div class="h-48 bg-gray-200">
-                        <img src="${bike.image}" alt="${bike.brand}" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-5">
-                        <span class="text-xs font-bold ${bike.status === 'dostupné' ? 'text-green-600' : 'text-blue-600'} uppercase tracking-widest">
-                            ${bike.status}
-                        </span>
-                        <h4 class="text-xl font-bold mt-1">${bike.brand} ${bike.model}</h4>
-                        <p class="text-gray-600 text-sm mt-2">${bike.description}</p>
-                        <div class="mt-4 flex justify-between items-center">
-                            <span class="text-2xl font-extrabold text-gray-900">${bike.price}€</span>
-                            <a href="https://bazos.sk" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-500">
-                                Mám záujem
-                            </a>
+    <footer class="bg-gray-900 text-gray-500 py-10 px-4 text-center border-t border-gray-800 text-sm">
+        <p>© 2026 BIKEHUB KE. Všetky práva vyhradené.</p>
+    </footer title="Footer Section">
+
+    <script>
+        async function loadBikes() {
+            try {
+                const response = await fetch('bikes.json');
+                const bikes = await response.json();
+                const container = document.getElementById('bike-container');
+
+                container.innerHTML = bikes.map(bike => `
+                    <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-300">
+                        <div class="h-56 bg-gray-200 relative overflow-hidden">
+                            <img src="${bike.image}" alt="${bike.brand}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            ${bike.status === 'dostupné' ? '<span class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg uppercase">Novinka</span>' : ''}
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="text-2xl font-extrabold text-gray-900">${bike.brand}</h4>
+                                <span class="text-2xl font-black text-blue-600">${bike.price}€</span>
+                            </div>
+                            <p class="text-gray-500 text-sm mb-4 font-medium uppercase tracking-wider">${bike.model}</p>
+                            <p class="text-gray-600 text-sm line-clamp-2 mb-6">${bike.description}</p>
+                            
+                            <div class="flex items-center justify-between pt-4 border-t border-gray-50">
+                                <span class="flex items-center text-xs font-bold ${bike.status === 'dostupné' ? 'text-green-600' : 'text-gray-400'} uppercase">
+                                    <span class="w-2 h-2 rounded-full ${bike.status === 'dostupné' ? 'bg-green-600' : 'bg-gray-400'} mr-2"></span>
+                                    ${bike.status}
+                                </span>
+                                <a href="tel:+421952471384" class="text-blue-600 hover:text-blue-800 text-sm font-bold flex items-center">
+                                    Mám záujem <i class="fas fa-chevron-right ml-2 text-xs"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            `).join('');
-        } catch (error) {
-            console.error('Chyba pri načítaní bicyklov:', error);
+                `).join('');
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('bike-container').innerHTML = '<p class="text-center col-span-3 py-10 text-gray-400">Momentálne pripravujeme nové bicykle...</p>';
+            }
         }
-    }
-
-    loadBikes(); // Запускаем функцию при загрузке страницы
-</script>
+        loadBikes();
+    </script>
 </body>
 </html>
