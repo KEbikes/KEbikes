@@ -8,12 +8,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-        
-        /* Плавная прокрутка для всей страницы */
         html { scroll-behavior: smooth; }
-        
         body { font-family: 'Inter', sans-serif; background-color: #fafafa; }
-        
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
@@ -25,94 +21,68 @@
 </head>
 <body class="text-gray-900">
 
-    <!-- Навигация -->
     <header class="glass-header shadow-sm sticky top-0 z-50 border-b border-gray-100">
         <div class="max-w-6xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center gap-2">
-            
             <h1 class="text-xl md:text-2xl font-black text-black tracking-tighter uppercase shrink-0">
                 BIKEHUB <span class="text-gray-300 italic font-bold">KE</span>
             </h1>
-
             <nav class="flex items-center gap-2 md:gap-4">
                 <a href="#ponuka" class="hidden lg:block font-bold text-[10px] uppercase tracking-[0.2em] text-gray-400 hover:text-black transition px-2">Ponuka</a>
-                
-                <a href="servis.html" class="bg-black text-white px-4 md:px-8 py-2.5 md:py-3.5 rounded-xl md:rounded-[1.2rem] font-black uppercase text-[9px] md:text-[10px] tracking-[0.1em] md:tracking-[0.2em] hover:bg-gray-800 transition whitespace-nowrap">
-                    Servis
-                </a>
-                
-                <a href="kontakt.html" class="bg-black text-white px-4 md:px-8 py-2.5 md:py-3.5 rounded-xl md:rounded-[1.2rem] font-black uppercase text-[9px] md:text-[10px] tracking-[0.1em] md:tracking-[0.2em] hover:bg-gray-800 transition whitespace-nowrap">
-                    Kontakt
-                </a>
+                <a href="#recenzie" class="hidden lg:block font-bold text-[10px] uppercase tracking-[0.2em] text-gray-400 hover:text-black transition px-2">Recenzie</a>
+                <a href="servis.html" class="bg-black text-white px-4 md:px-8 py-2.5 md:py-3.5 rounded-xl md:rounded-[1.2rem] font-black uppercase text-[9px] md:text-[10px] tracking-[0.1em] md:tracking-[0.2em] hover:bg-gray-800 transition whitespace-nowrap">Servis</a>
             </nav>
-
         </div>
     </header>
 
-    <!-- Hero -->
-    <section class="relative hero-gradient py-32 px-6 overflow-hidden">
-        <div class="max-w-6xl mx-auto relative z-10 text-center reveal">
+    <section class="relative hero-gradient py-32 px-6 overflow-hidden text-center">
+        <div class="max-w-6xl mx-auto relative z-10 reveal">
             <span class="inline-block border border-white/20 text-white/60 text-[9px] font-black px-5 py-1.5 rounded-full uppercase tracking-[0.3em] mb-8">Košice • Professional Studio</span>
             <h2 class="text-6xl md:text-8xl font-black mb-8 uppercase tracking-tighter text-white leading-[0.9]">
                 Vyladené bicykle<br><span class="text-gray-600 italic">bez kompromisov.</span>
             </h2>
-            <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-12 font-medium leading-relaxed">
-                Ponúkame stroje po kompletnom technickom servise. Kvalitná mechanika a profesionálny prístup kedykoľvek v Košiciach.
-            </p>
             <div class="flex flex-wrap justify-center gap-6">
-                <!-- Кнопка с плавным спуском -->
                 <a href="#ponuka" class="bg-white text-black px-12 py-5 rounded-2xl font-black uppercase tracking-tight hover:bg-gray-200 transition shadow-2xl">Pozrieť ponuku</a>
-                <a href="kontakt.html" class="bg-white/5 text-white border border-white/10 px-12 py-5 rounded-2xl font-black uppercase tracking-tight hover:bg-white/10 transition">Napísať nám</a>
             </div>
         </div>
     </section>
 
-    <!-- O nás -->
-    <section id="o-nas" class="max-w-6xl mx-auto py-32 px-6">
-        <div class="flex flex-col lg:flex-row items-center gap-20">
-            <div class="lg:w-1/2 reveal">
-                <h3 class="text-4xl font-black mb-8 uppercase tracking-tighter italic text-black">O projekte</h3>
-                <p class="text-xl text-gray-500 leading-relaxed mb-10 font-light">
-                    BIKEHUB KE je výsledkom vášne k cyklistike a precíznej mechanike. Každý bicykel v našej ponuke prechádza hĺbkovou kontrolou.
-                </p>
-                <div class="bg-white border border-gray-100 p-8 rounded-[2.5rem] shadow-sm relative">
-                    <div class="absolute -top-4 -left-4 bg-black text-white w-10 h-10 flex items-center justify-center rounded-xl font-black italic">"</div>
-                    <p class="text-gray-800 font-medium leading-relaxed italic">
-                        Naším cieľom je vrátiť na cesty bicykle v stave, ktorý prekonáva očakávania.
-                    </p>
-                </div>
-            </div>
-            <div class="lg:w-1/2 grid grid-cols-2 gap-6 reveal">
-                <div class="bg-white border border-gray-100 p-10 rounded-[3rem] text-center shadow-sm">
-                    <div class="text-5xl font-black text-black mb-3 tracking-tighter italic">100%</div>
-                    <p class="text-[9px] font-black uppercase tracking-[0.2em] text-gray-400">Technical check</p>
-                </div>
-                <div class="bg-black p-10 rounded-[3rem] text-center text-white shadow-2xl">
-                    <div class="text-5xl font-black mb-3 tracking-tighter italic text-white">0€</div>
-                    <p class="text-[9px] font-black uppercase tracking-[0.2em] text-gray-400">Extra costs</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Ponuka -->
+    <!-- Раздел с велосипедами -->
     <section id="ponuka" class="bg-gray-50 py-32 px-6 rounded-[4rem]">
         <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-4">
-                <h3 class="text-5xl font-black uppercase tracking-tighter leading-none">Aktuálna ponuka</h3>
-                <div class="bg-white border border-gray-200 px-6 py-3 rounded-full flex items-center shadow-sm">
-                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse mr-3"></span>
-                    <span class="text-[10px] font-black uppercase tracking-widest text-gray-500">Dostupné v Košiciach</span>
-                </div>
-            </div>
-            <div id="bike-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"></div>
+            <h3 class="text-5xl font-black uppercase tracking-tighter mb-20">Aktuálna ponuka</h3>
+            <div id="bike-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-left"></div>
         </div>
     </section>
 
-    <footer class="py-12 text-center">
-        <p class="text-[9px] font-black uppercase tracking-[0.4em] text-gray-400">© 2026 BIKEHUB KE • Košice • Professional Workshop</p>
+    <!-- НОВЫЙ РАЗДЕЛ: ОТЗЫВЫ -->
+    <section id="recenzie" class="max-w-6xl mx-auto py-32 px-6">
+        <h3 class="text-5xl font-black uppercase tracking-tighter mb-16 italic">Recenzie</h3>
+        
+        <!-- Форма отправки -->
+        <div class="bg-white p-10 rounded-[3rem] border border-gray-100 shadow-sm mb-16">
+            <h4 class="text-2xl font-black uppercase tracking-tight mb-6">Pridať skúsenosť</h4>
+            <div class="grid grid-cols-1 gap-5">
+                <input type="text" id="rev-name" placeholder="Vaše meno" class="p-5 bg-gray-50 rounded-2xl border-none outline-none focus:ring-2 focus:ring-black transition">
+                <textarea id="rev-text" placeholder="Ako ste boli spokojní so servisom alebo bicyklom?" class="p-5 bg-gray-50 rounded-2xl border-none outline-none focus:ring-2 focus:ring-black h-32 transition"></textarea>
+                <button onclick="sendReview()" class="bg-black text-white py-5 rounded-2xl font-black uppercase text-[10px] tracking-[0.3em] hover:bg-gray-800 transition shadow-lg">Odoslať recenziu</button>
+            </div>
+        </div>
+
+        <!-- Список отзывов -->
+        <div id="reviews-list" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Отзывы подгружаются сюда через JS -->
+        </div>
+    </section>
+
+    <footer class="py-12 text-center border-t border-gray-100">
+        <p class="text-[9px] font-black uppercase tracking-[0.4em] text-gray-400">© 2026 BIKEHUB KE • Košice</p>
     </footer>
 
     <script>
+        // Твоя ссылка из Firebase
+        const DB_URL = "https://kebikes-default-rtdb.europe-west1.firebasedatabase.app/reviews.json";
+
+        // Функция загрузки велосипедов (как была раньше)
         async function loadBikes() {
             try {
                 const response = await fetch('bikes.json');
@@ -132,13 +102,68 @@
                                 </div>
                                 <div class="text-3xl font-light text-black tracking-tighter italic">${bike.price}€</div>
                             </div>
-                            <p class="text-gray-500 text-sm mb-10 leading-relaxed font-medium line-clamp-2">${bike.description}</p>
-                            <a href="bike-details.html?id=${bike.id}" class="block w-full bg-black text-white text-center py-5 rounded-[1.5rem] font-black uppercase text-[10px] tracking-[0.3em] hover:bg-gray-800 transition duration-300 shadow-lg">Zobraziť bicykel</a>
+                            <a href="https://www.bazos.sk" target="_blank" class="block w-full mt-4 text-center text-[9px] font-black uppercase tracking-[0.2em] text-gray-400 hover:text-black transition">
+                                <i class="fas fa-external-link-alt mr-1"></i> Inzerát na Bazoš.sk
+                            </a>
                         </div>
                     </div>`).join('');
-            } catch (error) { console.error('Error loading bikes'); }
+            } catch (error) { console.error('Chyba pri načítaní bicyklov'); }
         }
+
+        // --- ЛОГИКА ОТЗЫВОВ ---
+
+        async function sendReview() {
+            const nameInput = document.getElementById('rev-name');
+            const textInput = document.getElementById('rev-text');
+
+            if(!nameInput.value || !textInput.value) {
+                alert("Prosím, vyplňte všetky polia.");
+                return;
+            }
+
+            const newReview = {
+                name: nameInput.value,
+                text: textInput.value,
+                date: new Date().toLocaleDateString()
+            };
+
+            try {
+                await fetch(DB_URL, {
+                    method: 'POST',
+                    body: JSON.stringify(newReview)
+                });
+                nameInput.value = '';
+                textInput.value = '';
+                loadReviews();
+            } catch (error) { console.error("Chyba pri odosielaní"); }
+        }
+
+        async function loadReviews() {
+            try {
+                const response = await fetch(DB_URL);
+                const data = await response.json();
+                const container = document.getElementById('reviews-list');
+                container.innerHTML = '';
+
+                if (data) {
+                    Object.values(data).reverse().forEach(rev => {
+                        container.innerHTML += `
+                            <div class="bg-white p-10 rounded-[2.5rem] border border-gray-100 shadow-sm reveal">
+                                <div class="flex text-yellow-400 mb-4 text-xs italic">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                                <p class="text-gray-600 mb-6 font-medium italic leading-relaxed">"${rev.text}"</p>
+                                <p class="font-black uppercase text-[10px] tracking-[0.2em] text-black italic">- ${rev.name}, ${rev.date}</p>
+                            </div>
+                        `;
+                    });
+                }
+            } catch (error) { console.error("Chyba pri načítaní recenzií"); }
+        }
+
+        // Запуск всего при старте
         loadBikes();
+        loadReviews();
     </script>
 </body>
 </html>
