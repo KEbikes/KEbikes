@@ -29,7 +29,8 @@
             <nav class="flex items-center gap-2 md:gap-4">
                 <a href="#ponuka" class="hidden lg:block font-bold text-[10px] uppercase tracking-[0.2em] text-gray-400 hover:text-black transition px-2">Ponuka</a>
                 <a href="#recenzie" class="hidden lg:block font-bold text-[10px] uppercase tracking-[0.2em] text-gray-400 hover:text-black transition px-2">Recenzie</a>
-                <a href="servis.html" class="bg-black text-white px-4 md:px-8 py-2.5 md:py-3.5 rounded-xl md:rounded-[1.2rem] font-black uppercase text-[9px] md:text-[10px] tracking-[0.1em] md:tracking-[0.2em] hover:bg-gray-800 transition whitespace-nowrap">Servis</a>
+                <a href="servis.html" class="bg-black text-white px-4 md:px-6 py-2 rounded-xl font-black uppercase text-[9px] tracking-[0.1em] hover:bg-gray-800 transition">Servis</a>
+                <a href="kontakt.html" class="bg-black text-white px-4 md:px-6 py-2 rounded-xl font-black uppercase text-[9px] tracking-[0.1em] hover:bg-gray-800 transition">Kontakt</a>
             </nav>
         </div>
     </header>
@@ -42,36 +43,31 @@
             </h2>
             <div class="flex flex-wrap justify-center gap-6">
                 <a href="#ponuka" class="bg-white text-black px-12 py-5 rounded-2xl font-black uppercase tracking-tight hover:bg-gray-200 transition shadow-2xl">Pozrieť ponuku</a>
+                <a href="kontakt.html" class="bg-white/5 text-white border border-white/10 px-12 py-5 rounded-2xl font-black uppercase tracking-tight hover:bg-white/10 transition">Napísať nám</a>
             </div>
         </div>
     </section>
 
-    <!-- Раздел с велосипедами -->
+    <!-- Секция велосипедов -->
     <section id="ponuka" class="bg-gray-50 py-32 px-6 rounded-[4rem]">
         <div class="max-w-6xl mx-auto">
             <h3 class="text-5xl font-black uppercase tracking-tighter mb-20">Aktuálna ponuka</h3>
-            <div id="bike-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-left"></div>
+            <div id="bike-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"></div>
         </div>
     </section>
 
-    <!-- НОВЫЙ РАЗДЕЛ: ОТЗЫВЫ -->
+    <!-- Секция отзывов (свежие пишутся сюда) -->
     <section id="recenzie" class="max-w-6xl mx-auto py-32 px-6">
         <h3 class="text-5xl font-black uppercase tracking-tighter mb-16 italic">Recenzie</h3>
-        
-        <!-- Форма отправки -->
         <div class="bg-white p-10 rounded-[3rem] border border-gray-100 shadow-sm mb-16">
             <h4 class="text-2xl font-black uppercase tracking-tight mb-6">Pridať skúsenosť</h4>
             <div class="grid grid-cols-1 gap-5">
-                <input type="text" id="rev-name" placeholder="Vaše meno" class="p-5 bg-gray-50 rounded-2xl border-none outline-none focus:ring-2 focus:ring-black transition">
-                <textarea id="rev-text" placeholder="Ako ste boli spokojní so servisom alebo bicyklom?" class="p-5 bg-gray-50 rounded-2xl border-none outline-none focus:ring-2 focus:ring-black h-32 transition"></textarea>
-                <button onclick="sendReview()" class="bg-black text-white py-5 rounded-2xl font-black uppercase text-[10px] tracking-[0.3em] hover:bg-gray-800 transition shadow-lg">Odoslať recenziu</button>
+                <input type="text" id="rev-name" placeholder="Vaše meno" class="p-5 bg-gray-50 rounded-2xl border-none outline-none focus:ring-2 focus:ring-black">
+                <textarea id="rev-text" placeholder="Vaša recenzia..." class="p-5 bg-gray-50 rounded-2xl border-none outline-none focus:ring-2 focus:ring-black h-32"></textarea>
+                <button onclick="sendReview()" class="bg-black text-white py-5 rounded-2xl font-black uppercase text-[10px] tracking-[0.3em] hover:bg-gray-800 transition shadow-lg">Odoslať</button>
             </div>
         </div>
-
-        <!-- Список отзывов -->
-        <div id="reviews-list" class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Отзывы подгружаются сюда через JS -->
-        </div>
+        <div id="reviews-list" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div>
     </section>
 
     <footer class="py-12 text-center border-t border-gray-100">
@@ -79,10 +75,8 @@
     </footer>
 
     <script>
-        // Твоя ссылка из Firebase
         const DB_URL = "https://kebikes-default-rtdb.europe-west1.firebasedatabase.app/reviews.json";
 
-        // Функция загрузки велосипедов (как была раньше)
         async function loadBikes() {
             try {
                 const response = await fetch('bikes.json');
@@ -102,66 +96,39 @@
                                 </div>
                                 <div class="text-3xl font-light text-black tracking-tighter italic">${bike.price}€</div>
                             </div>
-                            <a href="https://www.bazos.sk" target="_blank" class="block w-full mt-4 text-center text-[9px] font-black uppercase tracking-[0.2em] text-gray-400 hover:text-black transition">
-                                <i class="fas fa-external-link-alt mr-1"></i> Inzerát na Bazoš.sk
-                            </a>
+                            <a href="https://www.bazos.sk" target="_blank" class="block w-full mt-4 text-center text-[9px] font-black uppercase tracking-[0.2em] text-gray-400 hover:text-black transition">Inzerát na Bazoš.sk</a>
                         </div>
                     </div>`).join('');
-            } catch (error) { console.error('Chyba pri načítaní bicyklov'); }
+            } catch (error) { console.error("Chyba načítania bicyklov"); }
         }
 
-        // --- ЛОГИКА ОТЗЫВОВ ---
-
         async function sendReview() {
-            const nameInput = document.getElementById('rev-name');
-            const textInput = document.getElementById('rev-text');
-
-            if(!nameInput.value || !textInput.value) {
-                alert("Prosím, vyplňte všetky polia.");
-                return;
-            }
-
-            const newReview = {
-                name: nameInput.value,
-                text: textInput.value,
-                date: new Date().toLocaleDateString()
-            };
-
-            try {
-                await fetch(DB_URL, {
-                    method: 'POST',
-                    body: JSON.stringify(newReview)
-                });
-                nameInput.value = '';
-                textInput.value = '';
-                loadReviews();
-            } catch (error) { console.error("Chyba pri odosielaní"); }
+            const name = document.getElementById('rev-name').value;
+            const text = document.getElementById('rev-text').value;
+            if(!name || !text) return alert("Vyplňte polia!");
+            const newReview = { name, text, date: new Date().toLocaleDateString() };
+            await fetch(DB_URL, { method: 'POST', body: JSON.stringify(newReview) });
+            document.getElementById('rev-name').value = '';
+            document.getElementById('rev-text').value = '';
+            loadReviews();
         }
 
         async function loadReviews() {
-            try {
-                const response = await fetch(DB_URL);
-                const data = await response.json();
-                const container = document.getElementById('reviews-list');
-                container.innerHTML = '';
-
-                if (data) {
-                    Object.values(data).reverse().forEach(rev => {
-                        container.innerHTML += `
-                            <div class="bg-white p-10 rounded-[2.5rem] border border-gray-100 shadow-sm reveal">
-                                <div class="flex text-yellow-400 mb-4 text-xs italic">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                </div>
-                                <p class="text-gray-600 mb-6 font-medium italic leading-relaxed">"${rev.text}"</p>
-                                <p class="font-black uppercase text-[10px] tracking-[0.2em] text-black italic">- ${rev.name}, ${rev.date}</p>
-                            </div>
-                        `;
-                    });
-                }
-            } catch (error) { console.error("Chyba pri načítaní recenzií"); }
+            const response = await fetch(DB_URL);
+            const data = await response.json();
+            const container = document.getElementById('reviews-list');
+            container.innerHTML = '';
+            if (data) {
+                Object.values(data).reverse().forEach(rev => {
+                    container.innerHTML += `
+                        <div class="bg-white p-10 rounded-[2.5rem] border border-gray-100 shadow-sm reveal">
+                            <p class="text-gray-600 mb-6 italic leading-relaxed">"${rev.text}"</p>
+                            <p class="font-black uppercase text-[10px] tracking-[0.2em] text-black">- ${rev.name}, ${rev.date}</p>
+                        </div>`;
+                });
+            }
         }
 
-        // Запуск всего при старте
         loadBikes();
         loadReviews();
     </script>
