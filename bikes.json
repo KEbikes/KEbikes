@@ -18,3 +18,14 @@
     "image": "https://raw.githubusercontent.com/твой-ник/bikehub-ke/main/img/merida.jpg"
   }
 ]
+[
+  {
+    "id": "kellys-viper-2026",
+    "brand": "Kellys",
+    "model": "Viper",
+    "price": 250,
+    "description": "Jazdený horský bicykel v TOP stave. Pravidelne servisovaný 2x ročne. Výbava: Shimano Altus (3x8), mechanické kotúčové brzdy, hliníkový rám.",
+    "status": "dostupné",
+    "image": "img/kellys_viper.jpg"
+  }
+]
