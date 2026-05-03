@@ -17,6 +17,26 @@
         .reveal { animation: fadeInUp 0.8s ease-out forwards; }
         .glass-header { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); }
         .hero-gradient { background: linear-gradient(to bottom, #0a0a0a 0%, #1a1a1a 100%); }
+        
+        /* Стиль черной кнопки как на скриншоте */
+        .btn-black {
+            background-color: black;
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 9999px; /* Полностью закругленные края */
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-black:hover {
+            background-color: #222;
+            transform: translateY(-1px);
+        }
     </style>
 </head>
 <body class="text-gray-900">
@@ -26,11 +46,13 @@
             <h1 class="text-xl md:text-2xl font-black text-black tracking-tighter uppercase shrink-0">
                 BIKEHUB <span class="text-gray-300 italic font-bold">KE</span>
             </h1>
-            <nav class="flex items-center gap-2 md:gap-4">
-                <a href="#ponuka" class="hidden lg:block font-bold text-[10px] uppercase tracking-[0.2em] text-gray-400 hover:text-black transition px-2">Ponuka</a>
-                <a href="#recenzie" class="hidden lg:block font-bold text-[10px] uppercase tracking-[0.2em] text-gray-400 hover:text-black transition px-2">Recenzie</a>
-                <a href="servis.html" class="bg-black text-white px-4 md:px-6 py-2 rounded-xl font-black uppercase text-[9px] tracking-[0.1em] hover:bg-gray-800 transition">Servis</a>
-                <a href="kontakt.html" class="bg-black text-white px-4 md:px-6 py-2 rounded-xl font-black uppercase text-[9px] tracking-[0.1em] hover:bg-gray-800 transition">Kontakt</a>
+            <nav class="flex items-center gap-4 md:gap-6">
+                <a href="#ponuka" class="hidden sm:block font-bold text-[10px] uppercase tracking-[0.2em] text-gray-400 hover:text-black transition">Ponuka</a>
+                <a href="#recenzie" class="hidden sm:block font-bold text-[10px] uppercase tracking-[0.2em] text-gray-400 hover:text-black transition">Recenzie</a>
+                <div class="flex gap-2">
+                    <a href="servis.html" class="btn-black">Servis</a>
+                    <a href="kontakt.html" class="btn-black">Kontakt</a>
+                </div>
             </nav>
         </div>
     </header>
@@ -41,22 +63,22 @@
             <h2 class="text-6xl md:text-8xl font-black mb-8 uppercase tracking-tighter text-white leading-[0.9]">
                 Vyladené bicykle<br><span class="text-gray-600 italic">bez kompromisov.</span>
             </h2>
-            <div class="flex flex-wrap justify-center gap-6">
-                <a href="#ponuka" class="bg-white text-black px-12 py-5 rounded-2xl font-black uppercase tracking-tight hover:bg-gray-200 transition shadow-2xl">Pozrieť ponuku</a>
-                <a href="kontakt.html" class="bg-white/5 text-white border border-white/10 px-12 py-5 rounded-2xl font-black uppercase tracking-tight hover:bg-white/10 transition">Napísať nám</a>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#ponuka" class="btn-black !py-5 !px-12 !text-[12px]">Pozrieť ponuku</a>
+                <a href="kontakt.html" class="bg-white/5 text-white border border-white/10 px-12 py-5 rounded-full font-black uppercase text-[12px] tracking-tight hover:bg-white/10 transition">Napísať nám</a>
             </div>
         </div>
     </section>
 
-    <!-- Секция велосипедов -->
+    <!-- Ponuka -->
     <section id="ponuka" class="bg-gray-50 py-32 px-6 rounded-[4rem]">
-        <div class="max-w-6xl mx-auto">
+        <div class="max-w-6xl mx-auto text-center">
             <h3 class="text-5xl font-black uppercase tracking-tighter mb-20">Aktuálna ponuka</h3>
-            <div id="bike-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"></div>
+            <div id="bike-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-left"></div>
         </div>
     </section>
 
-    <!-- Секция отзывов (свежие пишутся сюда) -->
+    <!-- Recenzie -->
     <section id="recenzie" class="max-w-6xl mx-auto py-32 px-6">
         <h3 class="text-5xl font-black uppercase tracking-tighter mb-16 italic">Recenzie</h3>
         <div class="bg-white p-10 rounded-[3rem] border border-gray-100 shadow-sm mb-16">
@@ -64,7 +86,7 @@
             <div class="grid grid-cols-1 gap-5">
                 <input type="text" id="rev-name" placeholder="Vaše meno" class="p-5 bg-gray-50 rounded-2xl border-none outline-none focus:ring-2 focus:ring-black">
                 <textarea id="rev-text" placeholder="Vaša recenzia..." class="p-5 bg-gray-50 rounded-2xl border-none outline-none focus:ring-2 focus:ring-black h-32"></textarea>
-                <button onclick="sendReview()" class="bg-black text-white py-5 rounded-2xl font-black uppercase text-[10px] tracking-[0.3em] hover:bg-gray-800 transition shadow-lg">Odoslať</button>
+                <button onclick="sendReview()" class="btn-black !py-5 !text-[12px]">Odoslať recenziu</button>
             </div>
         </div>
         <div id="reviews-list" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div>
@@ -96,7 +118,10 @@
                                 </div>
                                 <div class="text-3xl font-light text-black tracking-tighter italic">${bike.price}€</div>
                             </div>
-                            <a href="https://www.bazos.sk" target="_blank" class="block w-full mt-4 text-center text-[9px] font-black uppercase tracking-[0.2em] text-gray-400 hover:text-black transition">Inzerát na Bazoš.sk</a>
+                            <div class="flex flex-col gap-3">
+                                <a href="bike-details.html?id=${bike.id}" class="btn-black">Zobraziť bicykel</a>
+                                <a href="https://www.bazos.sk" target="_blank" class="text-center text-[9px] font-black uppercase tracking-[0.2em] text-gray-400 hover:text-black transition">Inzerát na Bazoš.sk</a>
+                            </div>
                         </div>
                     </div>`).join('');
             } catch (error) { console.error("Chyba načítania bicyklov"); }
@@ -123,7 +148,7 @@
                     container.innerHTML += `
                         <div class="bg-white p-10 rounded-[2.5rem] border border-gray-100 shadow-sm reveal">
                             <p class="text-gray-600 mb-6 italic leading-relaxed">"${rev.text}"</p>
-                            <p class="font-black uppercase text-[10px] tracking-[0.2em] text-black">- ${rev.name}, ${rev.date}</p>
+                            <p class="font-black uppercase text-[10px] tracking-[0.2em] text-black italic">- ${rev.name}, ${rev.date}</p>
                         </div>`;
                 });
             }
