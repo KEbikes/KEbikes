@@ -29,7 +29,6 @@
                 BIKEHUB <span class="text-gray-300 italic font-bold">KE</span>
             </h1>
 
-            <!-- Меню: теперь кнопки видны и на мобилках -->
             <nav class="flex items-center gap-2 md:gap-4">
                 <a href="#ponuka" class="hidden lg:block font-bold text-[10px] uppercase tracking-[0.2em] text-gray-400 hover:text-black transition px-2">Ponuka</a>
                 
@@ -126,7 +125,7 @@
                                 <div class="text-3xl font-light text-black tracking-tighter italic">${bike.price}€</div>
                             </div>
                             <p class="text-gray-500 text-sm mb-10 leading-relaxed font-medium line-clamp-2">${bike.description}</p>
-                            <a href="bike-details.html?id=${bike.id}" class="block w-full bg-black text-white text-center py-5 rounded-[1.5rem] font-black uppercase text-[10px] tracking-[0.3em] hover:bg-gray-800 transition duration-300 shadow-lg">Detail stroja</a>
+                            <a href="bike-details.html?id=${bike.id}" class="block w-full bg-black text-white text-center py-5 rounded-[1.5rem] font-black uppercase text-[10px] tracking-[0.3em] hover:bg-gray-800 transition duration-300 shadow-lg">Zobraziť bicykel</a>
                         </div>
                     </div>`).join('');
             } catch (error) { console.error('Error loading bikes'); }
