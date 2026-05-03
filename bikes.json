@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "brand": "Torpado",
+    "model": "Sportage 29\"",
+    "price": 195,
+    "status": "predané",
+    "description": "Kompletný servis, nové lanká a mestské plášte. Jazdí veľmi hladko.",
+    "image": "https://raw.githubusercontent.com/твой-ник/bikehub-ke/main/img/torpado.jpg"
+  },
+  {
+    "id": 2,
+    "brand": "Merida",
+    "model": "Matts Comp",
+    "price": 145,
+    "status": "dostupné",
+    "description": "Hliníkový rám, olejová vidlica SR Suntour XCM s uzamykaním. Top stav za túto cenu.",
+    "image": "https://raw.githubusercontent.com/твой-ник/bikehub-ke/main/img/merida.jpg"
+  }
+]
