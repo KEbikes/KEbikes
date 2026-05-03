@@ -3,124 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BIKEHUB KE | Premium Workshop</title>
+    <title>BIKEHUB KE | Premium Bicycle Studio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #000; }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #0f1115; 
+            color: #e2e8f0;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .text-gold { color: #d4af37; }
+        .bg-gold { background-color: #d4af37; }
+        .border-gold { border-color: rgba(212, 175, 55, 0.3); }
         .smooth-scroll { scroll-behavior: smooth; }
-        .yellow-glow { shadow-xl shadow-yellow-400/20; }
     </style>
 </head>
-<body class="text-white smooth-scroll">
+<body class="smooth-scroll">
 
     <!-- Header -->
-    <header class="bg-black/80 backdrop-blur-md sticky top-0 z-50 border-b border-white/10">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-black tracking-tighter uppercase">
-                BIKEHUB <span class="text-yellow-400">KE</span>
+    <header class="fixed top-0 w-full z-50 glass border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
+            <h1 class="text-xl font-extrabold tracking-[0.2em] uppercase">
+                BIKEHUB<span class="text-gold italic">KE</span>
             </h1>
-            <nav class="hidden md:flex space-x-8 font-bold text-xs uppercase tracking-widest text-gray-400">
-                <a href="#ponuka" class="hover:text-yellow-400 transition">Ponuka</a>
-                <a href="#o-nas" class="hover:text-yellow-400 transition">Kto sme</a>
-                <a href="#servis" class="hover:text-yellow-400 transition">Servis</a>
-                <a href="#kontakt" class="hover:text-yellow-400 transition">Kontakt</a>
+            <nav class="hidden md:flex space-x-12 text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400">
+                <a href="#ponuka" class="hover:text-gold transition-colors">Kolekcia</a>
+                <a href="#o-nas" class="hover:text-gold transition-colors">O nás</a>
+                <a href="#servis" class="hover:text-gold transition-colors">Ateliér</a>
+                <a href="#kontakt" class="hover:text-gold transition-colors">Kontakt</a>
             </nav>
-            <a href="tel:+421952471384" class="text-yellow-400 font-black text-sm uppercase tracking-widest border border-yellow-400/30 px-4 py-2 rounded-full hover:bg-yellow-400 hover:text-black transition">
-                Zavolať
-            </a>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="relative bg-black py-28 px-4 overflow-hidden border-b border-white/5">
-        <div class="max-w-6xl mx-auto relative z-10 text-center">
-            <span class="inline-block bg-yellow-400 text-black text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-[0.2em] mb-8">
-                Košice Premium Service
-            </span>
-            <h2 class="text-6xl md:text-8xl font-black mb-8 uppercase tracking-tighter leading-none">
-                Vyladené stroje.<br><span class="text-yellow-400 italic">Bez kompromisov.</span>
+    <!-- Hero -->
+    <section class="relative min-h-screen flex items-center justify-center px-4 pt-20">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-gold/10 rounded-full blur-[120px]"></div>
+            <div class="absolute bottom-[-10%] right-[-10%] w-[30%] h-[30%] bg-blue-500/5 rounded-full blur-[120px]"></div>
+        </div>
+
+        <div class="relative z-10 text-center">
+            <h2 class="text-6xl md:text-8xl font-extrabold mb-8 tracking-tighter leading-none">
+                Estetika <br><span class="text-gold italic">pohybu.</span>
             </h2>
-            <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-12 font-medium">
-                Pripravujeme bicykle pre náročných. Každý kus prejde rukami technikov z <span class="text-white font-bold">UPJŠ</span>. Sadneš a letíš.
+            <p class="text-gray-400 text-lg md:text-xl max-w-xl mx-auto mb-12 font-light leading-relaxed">
+                Ručne vybrané a precízne servisované bicykle pre tých, ktorí vnímajú detaily. Sme študenti z <span class="text-white border-b border-gold/50">UPJŠ</span>, prinášame kvalitu do Košíc.
             </p>
-            <div class="flex flex-wrap justify-center gap-6">
-                <a href="#ponuka" class="bg-yellow-400 text-black px-12 py-5 rounded-2xl font-black uppercase tracking-tight hover:scale-105 transition shadow-2xl shadow-yellow-400/20">Aktuálna ponuka</a>
-                <a href="#servis" class="bg-white/5 text-white border border-white/10 px-12 py-5 rounded-2xl font-black uppercase tracking-tight hover:bg-white/10 transition">Náš Štandard</a>
-            </div>
-        </div>
-        <!-- Background Glow -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-yellow-400/10 rounded-full blur-[120px]"></div>
-    </section>
-
-    <!-- Kto Sme (Dark) -->
-    <section id="o-nas" class="max-w-6xl mx-auto py-24 px-4">
-        <div class="flex flex-col lg:flex-row items-center gap-20">
-            <div class="lg:w-1/2">
-                <h3 class="text-yellow-400 text-sm font-black uppercase tracking-[0.3em] mb-4">Kto sme?</h3>
-                <h4 class="text-4xl font-black mb-8 uppercase tracking-tighter italic">Informatika v službách cyklistiky.</h4>
-                <p class="text-xl text-gray-400 leading-relaxed mb-8">
-                    Sme partia z <span class="text-white">UPJŠ Košice</span>. K servisu pristupujeme ako ku kódu – všetko musí byť čisté, efektívne a bez chýb.
-                </p>
-                <div class="grid grid-cols-2 gap-8 border-t border-white/10 pt-8">
-                    <div>
-                        <div class="text-3xl font-black text-yellow-400">100%</div>
-                        <div class="text-[10px] uppercase text-gray-500 font-bold tracking-widest mt-1">Manual check</div>
-                    </div>
-                    <div>
-                        <div class="text-3xl font-black text-yellow-400">0€</div>
-                        <div class="text-[10px] uppercase text-gray-500 font-bold tracking-widest mt-1">Extra náklady</div>
-                    </div>
-                </div>
-            </div>
-            <div class="lg:w-1/2">
-                <div class="relative p-1 bg-gradient-to-br from-yellow-400 to-transparent rounded-[3rem]">
-                    <div class="bg-black p-12 rounded-[2.9rem] text-center">
-                        <i class="fas fa-tools text-6xl text-yellow-400 mb-6"></i>
-                        <p class="text-gray-400 italic">"Každý bicykel, ktorý predáme, by sme si sami nechali. To je naše pravidlo."</p>
-                    </div>
-                </div>
+            <div class="flex flex-col md:flex-row justify-center gap-6">
+                <a href="#ponuka" class="bg-gold text-black px-12 py-5 rounded-full font-bold uppercase text-xs tracking-widest hover:brightness-110 transition shadow-2xl shadow-gold/20">Prezrieť ponuku</a>
+                <a href="#kontakt" class="glass px-12 py-5 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-white/5 transition">Konzultácia</a>
             </div>
         </div>
     </section>
 
-    <!-- Aktuálna Ponuka -->
-    <section id="ponuka" class="bg-zinc-900/50 py-24 px-4 rounded-t-[4rem] border-t border-white/5">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex justify-between items-end mb-16">
-                <div>
-                    <h3 class="text-4xl font-black uppercase tracking-tighter text-white">Garage <span class="text-yellow-400">Sale</span></h3>
-                    <p class="text-gray-500 mt-2 font-medium tracking-wide">Najlepšie kusy v Košiciach</p>
-                </div>
-            </div>
-            
-            <div id="bike-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- JS Loader -->
-                <div class="col-span-full text-center py-20 text-gray-600 animate-pulse font-bold uppercase tracking-widest">Hľadám bicykle...</div>
-            </div>
+    <!-- Ponuka -->
+    <section id="ponuka" class="max-w-7xl mx-auto py-32 px-8">
+        <div class="mb-20">
+            <span class="text-gold text-[10px] font-bold uppercase tracking-[0.4em]">Aktuálna kolekcia</span>
+            <h3 class="text-4xl font-extrabold mt-4 tracking-tight uppercase">Dostupné stroje</h3>
+        </div>
+
+        <div id="bike-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <!-- JS vkladá karty -->
         </div>
     </section>
 
-    <!-- Kontakt -->
-    <section id="kontakt" class="max-w-4xl mx-auto py-32 px-4 text-center">
-        <h3 class="text-5xl font-black mb-6 uppercase tracking-tighter">Potrebuješ <span class="text-yellow-400">stroj?</span></h3>
-        <p class="text-gray-500 mb-12 text-xl font-medium">Sme na intrákoch v Košiciach. Ozvi sa.</p>
-        
-        <div class="flex flex-col md:flex-row justify-center items-center gap-6">
-            <a href="tel:+421952471384" class="w-full md:w-auto bg-yellow-400 text-black px-10 py-5 rounded-2xl font-black text-xl hover:scale-105 transition shadow-xl shadow-yellow-400/20">
-                +421 952 471 384
-            </a>
-            <a href="mailto:perepro1zz@gmail.com" class="w-full md:w-auto bg-white/5 text-white border border-white/10 px-10 py-5 rounded-2xl font-black hover:bg-white/10 transition">
-                E-mail info
-            </a>
+    <!-- Footer-Kontakt -->
+    <footer id="kontakt" class="glass border-t border-white/5 py-24 rounded-t-[3rem]">
+        <div class="max-w-4xl mx-auto text-center px-4">
+            <h4 class="text-3xl font-extrabold mb-8 uppercase tracking-tighter">Máte vybrané?</h4>
+            <p class="text-gray-500 mb-12 font-light">Navštívte nás v našom košickom štúdiu na osobnú obhliadku.</p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="tel:+421952471384" class="text-gold border border-gold px-10 py-4 rounded-full font-bold uppercase text-[10px] tracking-widest hover:bg-gold hover:text-black transition">
+                    +421 952 471 384
+                </a>
+            </div>
+            <p class="mt-20 text-[8px] text-gray-600 uppercase tracking-[0.5em]">© 2026 BIKEHUB KE • UPJS Informatics Project</p>
         </div>
-    </section>
-
-    <footer class="py-12 border-t border-white/5 text-center bg-black">
-        <p class="text-[9px] font-black uppercase tracking-[0.4em] text-gray-600">
-            © 2026 BIKEHUB KE • BY UPJS STUDENTS • KOSICE
-        </p>
     </footer>
 
     <script>
@@ -131,30 +96,27 @@
                 const container = document.getElementById('bike-container');
 
                 container.innerHTML = bikes.map(bike => `
-                    <div class="bg-black rounded-[2.5rem] border border-white/5 overflow-hidden group hover:border-yellow-400/50 transition-all duration-500">
-                        <div class="h-64 bg-zinc-900 relative overflow-hidden">
-                            <img src="${bike.image}" alt="${bike.brand}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100">
-                            <span class="absolute top-6 left-6 bg-yellow-400 text-black text-[10px] font-black px-4 py-1.5 rounded-full shadow-lg uppercase tracking-widest">
-                                ${bike.status}
-                            </span>
+                    <div class="group relative">
+                        <div class="aspect-[4/5] rounded-[2rem] overflow-hidden bg-zinc-900 border border-white/5 transition-all duration-700 group-hover:border-gold/30">
+                            <img src="${bike.image}" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0f1115] via-transparent to-transparent opacity-60"></div>
                         </div>
-                        <div class="p-8">
-                            <div class="flex justify-between items-start mb-6">
+                        <div class="mt-8 px-2">
+                            <div class="flex justify-between items-end mb-4">
                                 <div>
-                                    <h4 class="text-2xl font-black text-white uppercase tracking-tighter">${bike.brand}</h4>
-                                    <p class="text-yellow-400 text-[10px] font-black uppercase tracking-widest">${bike.model}</p>
+                                    <p class="text-gold text-[10px] font-bold uppercase tracking-[0.2em] mb-1">${bike.brand}</p>
+                                    <h4 class="text-2xl font-bold tracking-tight uppercase">${bike.model}</h4>
                                 </div>
-                                <div class="text-2xl font-black text-white tracking-tighter">${bike.price}€</div>
+                                <div class="text-xl font-light tracking-tighter text-gray-300">${bike.price}€</div>
                             </div>
-                            <a href="bike-details.html?id=${bike.id}" class="block w-full bg-white/5 text-yellow-400 border border-yellow-400/20 text-center py-4 rounded-xl font-black uppercase text-xs tracking-widest hover:bg-yellow-400 hover:text-black transition-all duration-300">
-                                Viac informácií
+                            <a href="bike-details.html?id=${bike.id}" class="inline-block text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 hover:text-gold transition">
+                                Detailná špecifikácia —
                             </a>
                         </div>
                     </div>
                 `).join('');
             } catch (error) {
-                console.error('Error:', error);
-                document.getElementById('bike-container').innerHTML = '<p class="text-center col-span-3 text-gray-600 italic">Aktuálne vypredané...</p>';
+                container.innerHTML = '<p class="text-gray-600 uppercase text-[10px] tracking-widest">Katalóg sa pripravuje...</p>';
             }
         }
         loadBikes();
