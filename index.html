@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BikeHub Košice | Kvalitné bicykle z druhej ruky</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans text-gray-900">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-600 tracking-tight">BIKE<span class="text-gray-800">HUB</span> KE</h1>
+            <nav class="space-x-6 text-sm font-medium">
+                <a href="#ponuka" class="hover:text-blue-600 transition">Ponuka</a>
+                <a href="#servis" class="hover:text-blue-600 transition">Servis</a>
+                <a href="#kontakt" class="hover:text-blue-600 transition">Kontakt</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-blue-600 text-white py-16 px-4 text-center">
+        <h2 class="text-4xl font-extrabold mb-4">Vyladené bicykle v Košiciach</h2>
+        <p class="text-lg text-blue-100 max-w-2xl mx-auto">Ponúkam bicykle po kompletnom servise. Sadnúť a jazdiť.</p>
+    </section>
+
+    <!-- Bike Grid (База данных) -->
+    <main id="ponuka" class="max-w-6xl mx-auto px-4 py-12">
+        <h3 class="text-2xl font-bold mb-8">Aktuálna ponuka</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Велосипед 1: Torpado -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                <div class="h-48 bg-gray-200">
+                    <!-- Сюда вставим фото твоего Torpado -->
+                    <img src="https://via.placeholder.com/400x300" alt="Torpado" class="w-full h-full object-cover">
+                </div>
+                <div class="p-5">
+                    <span class="text-xs font-bold text-blue-600 uppercase tracking-widest">Predané</span>
+                    <h4 class="text-xl font-bold mt-1">Torpado Sportage 29"</h4>
+                    <p class="text-gray-600 text-sm mt-2 line-clamp-2">Kompletný servis, nové lanká a mestské plášte. Top stav.</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <span class="text-2xl font-extrabold text-gray-900">195€</span>
+                        <a href="#" class="bg-gray-800 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-700">Detail</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Велосипед 2: Merida (Твой новый проект) -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition border-2 border-blue-500">
+                <div class="h-48 bg-gray-200 relative">
+                    <div class="absolute top-2 right-2 bg-blue-500 text-white text-[10px] px-2 py-1 rounded font-bold uppercase">Novinka</div>
+                    <img src="https://via.placeholder.com/400x300" alt="Merida" class="w-full h-full object-cover">
+                </div>
+                <div class="p-5">
+                    <span class="text-xs font-bold text-green-600 uppercase tracking-widest">Dostupné</span>
+                    <h4 class="text-xl font-bold mt-1">Merida Matts Comp</h4>
+                    <p class="text-gray-600 text-sm mt-2 line-clamp-2">Hliníkový rám, vidlica SR Suntour XCM. Pripravený na sezónu.</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <span class="text-2xl font-extrabold text-gray-900">145€</span>
+                        <a href="https://bazos.sk" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-500 transition">Mám záujem</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer / Contact -->
+    <footer id="kontakt" class="bg-gray-900 text-white py-12 px-4 mt-12 text-center">
+        <p class="text-gray-400">Oleh Huralnyk | Košice, Slovakia</p>
+        <p class="mt-2 text-sm italic">Profesionálny prístup k bicyklom z druhej ruky.</p>
+    </footer>
+<script>
+    async function loadBikes() {
+        try {
+            const response = await fetch('bikes.json'); // Загружаем твой файл
+            const bikes = await response.json(); // Превращаем в массив объектов
+            const container = document.getElementById('bike-container');
+
+            container.innerHTML = bikes.map(bike => `
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                    <div class="h-48 bg-gray-200">
+                        <img src="${bike.image}" alt="${bike.brand}" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-5">
+                        <span class="text-xs font-bold ${bike.status === 'dostupné' ? 'text-green-600' : 'text-blue-600'} uppercase tracking-widest">
+                            ${bike.status}
+                        </span>
+                        <h4 class="text-xl font-bold mt-1">${bike.brand} ${bike.model}</h4>
+                        <p class="text-gray-600 text-sm mt-2">${bike.description}</p>
+                        <div class="mt-4 flex justify-between items-center">
+                            <span class="text-2xl font-extrabold text-gray-900">${bike.price}€</span>
+                            <a href="https://bazos.sk" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-500">
+                                Mám záujem
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        } catch (error) {
+            console.error('Chyba pri načítaní bicyklov:', error);
+        }
+    }
+
+    loadBikes(); // Запускаем функцию при загрузке страницы
+</script>
+</body>
+</html>
